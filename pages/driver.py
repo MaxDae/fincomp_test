@@ -1,7 +1,7 @@
 from zope import component
 from zope.interface import classImplements
 
-from interfaces.driver import IDriver
+from ..interfaces.driver import IDriver
 
 
 def registerDriver(iface, driver, class_implements=[]):

@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from zope.interface import Interface, implementer
 
-from interfaces.driver import IDriver
+from ..interfaces import driver
 from selenium.common.exceptions import NoSuchElementException
 
 import driver 
@@ -26,7 +26,7 @@ class ISelenium(Interface):
     """
 
 
-@implementer(IDriver)
+@implementer(driver.IDriver)
 class Selenium(object):
     def __init__(self, driver):
         self.driver = driver

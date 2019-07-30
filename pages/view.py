@@ -1,6 +1,5 @@
 from warnings import warn
-from interfaces.driver import IDriver
-
+from ..interfaces.driver import IDriver
 class WebView(object):
     def __init__(self, driver, timeout):
         self.driver = driver

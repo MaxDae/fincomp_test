@@ -1,8 +1,11 @@
 # coding: utf-8
 import pytest
-import pages
+from pages.credit_page import Purpose
+from pages.registration_page import RelationType
 from pages.page import BasePage
-
+# from pages.page import BasePage
+# from pages.registration_page import RelationType
+# from pages.credit_page import Purpose
 
 @pytest.fixture
 def selenium(selenium):
@@ -25,7 +28,7 @@ class Test():
         credit_page.open()
         productpage = credit_page.select_credit()
         productpage.type_amount(100)
-        productpage.select_purpose(pages.Purpose.purchase_financing)
+        productpage.select_purpose(Purpose.purchase_financing)
         productpage.select_term(24)
         company_search = productpage.submit()
         company_search.search_for_company(company_name)
@@ -43,7 +46,7 @@ class Test():
         registration_page.register()
         # Check if wrong mail error message displays
         assert (registration_page.EMAIL.get_error_msg() == self.wrong_mail_err_msg)
-        registration_page.business_relation.set_relation(pages.RelationType.business)
+        registration_page.business_relation.set_relation(RelationType.business)
         registration_page.PHONE.fill(company_name)
         registration_page.register()
         # Check that business relation field error msg no longer displays

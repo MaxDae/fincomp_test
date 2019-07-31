@@ -6,8 +6,7 @@ from zope.interface import Interface, implementer
 from ..interfaces import driver
 from selenium.common.exceptions import NoSuchElementException
 
-import driver 
-
+from .driver import registerDriver
 
 from selenium.webdriver import (
     Android,
@@ -143,7 +142,7 @@ def register():
         This register call is performed by the init module if
         selenium is available.
     """
-    driver.registerDriver(
+    registerDriver(
         ISelenium,
         Selenium,
         class_implements=[

@@ -1,8 +1,7 @@
 import collections
 import sys
 from selenium.webdriver.common.by import By
-import credit_page
-from view import WebView
+from .WebView import WebView
 
 if sys.version_info >= (3,):
     import urllib.parse as urlparse
@@ -121,21 +120,6 @@ class Page(WebView):
         return True
 
 
-
-
-
-class BasePage(Page):
-    URL_TEMPLATE = '/wizard'
-
-    CREDIT_PRODUCT_IMG = (By.XPATH, "//h2[contains(text(), 'Kredit')]")
-
-    @property
-    def loaded(self):
-        return self.is_element_displayed(By.CSS_SELECTOR, "div.funnel__products")
-
-    def select_credit(self):
-        self.click(*self.CREDIT_PRODUCT_IMG)
-        return credit_page.Credit(self.driver_adapter)
 
 
 

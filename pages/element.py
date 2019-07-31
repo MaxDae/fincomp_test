@@ -1,4 +1,4 @@
-from view import WebView
+from .WebView import WebView
 
 class Element(WebView):
 

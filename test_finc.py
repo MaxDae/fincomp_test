@@ -1,11 +1,8 @@
 # coding: utf-8
 import pytest
-from pages.credit_page import Purpose
-from pages.registration_page import RelationType
-from pages.page import BasePage
-# from pages.page import BasePage
-# from pages.registration_page import RelationType
-# from pages.credit_page import Purpose
+from .pages.Purpose import Purpose
+from .pages.RelationType import RelationType
+from .pages.BasePage import BasePage as Base
 
 @pytest.fixture
 def selenium(selenium):
@@ -24,7 +21,7 @@ class Test():
         "company_name",  ["FinCompare GmbH"])
     def test_open_url(self, selenium, variables, company_name):
 
-        credit_page = BasePage(selenium, variables.get("base_url"), variables.get("wait"))
+        credit_page = Base(selenium, variables.get("base_url"), variables.get("wait"))
         credit_page.open()
         productpage = credit_page.select_credit()
         productpage.type_amount(100)

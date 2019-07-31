@@ -1,5 +1,5 @@
-from page import Page
-from registration_page import RegistrationPage
+from .Page import Page
+from .RegistrationPage import RegistrationPage
 from selenium.webdriver.common.by import By
 
 

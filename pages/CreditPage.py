@@ -1,10 +1,10 @@
-from page import BasePage
+from .Page import Page
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from company_search_page import CompanySearch
+from .CompanySearch import CompanySearch
 
 
-class Credit(BasePage):
+class CreditPage(Page):
     URL_TEMPLATE = "/products/credit"
 
     AMOUNT_INPUT = (By.ID, "amount")
@@ -44,10 +44,4 @@ class Credit(BasePage):
         self.click(*self.SUBMIT)
         return CompanySearch(self.driver_adapter)
 
-
-class Purpose(object):
-    facilities_equipment = 'Betriebsmittel'
-    resource = 'Anlagen / Ausstattung'
-    purchase_financing = "Einkaufsfinanzierung"
-    software = "Software / IT / DEV"
 
